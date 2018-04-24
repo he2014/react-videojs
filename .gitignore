@@ -5,6 +5,7 @@
 /hooks
 /info
 /refs
+/objects
 # testing
 /coverage
 
