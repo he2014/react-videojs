@@ -2,7 +2,9 @@
 
 # dependencies
 /node_modules
-
+/hooks
+/info
+/refs
 # testing
 /coverage
 
@@ -10,6 +12,7 @@
 /build
 
 # misc
+.vscode
 .DS_Store
 .env.local
 .env.development.local
