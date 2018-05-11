@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-
 import video from 'video.js';
 import enableInlineVideo from 'iphone-inline-video';
 import "../node_modules/video.js/dist/video-js.min.css";
