@@ -12,6 +12,7 @@ const util = {
         if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
             return true;
         } else {
+
             return false;
         }
     }
