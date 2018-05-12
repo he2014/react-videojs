@@ -10,7 +10,7 @@ class API extends Server {
             throw error;
         }
     }
-    resultCode(cdoe) {
+    resultCode(code) {
         console.log(code);
     }
 }

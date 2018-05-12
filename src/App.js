@@ -4,6 +4,7 @@ import enableInlineVideo from 'iphone-inline-video';
 import "../node_modules/video.js/dist/video-js.min.css";
 import './App.css';
 import util from './util/util'
+import asyncComponent from './util/asyncComponent'
 import http from './api/api';
 
 class App extends Component {
