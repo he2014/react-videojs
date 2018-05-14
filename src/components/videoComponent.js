@@ -9,7 +9,7 @@ import "./VideoStle.css"
 import http from "../api/api"
 import config from "../api/config"
 import Websockets from "./websocketComponent"
-// import Communicator from "./websocket"
+import Communicator from "./websocket"
 
 class VideoCom extends Component {
     constructor(props) {
@@ -103,8 +103,8 @@ class VideoCom extends Component {
             }
         })
         //关闭socket
-        // Communicator.closeWebSocket();
-        // Communicator.closeHeartBeatiing();
+        Communicator.closeWebSocket();
+        Communicator.closeHeartBeatiing();
     }
     videoPlay() {
         let that = this;

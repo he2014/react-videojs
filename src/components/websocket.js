@@ -408,8 +408,8 @@ var Communicator = {
             };
             _this.ws.onclose = function (event) {
                 console.log("socket 断开---")
-                _this.connected = false;
-                _this.connect_server(socketUrl.url01);
+                // _this.connected = false;
+                // _this.connect_server(socketUrl.url01);
             };
         }
 
@@ -506,6 +506,7 @@ var Communicator = {
         );
     },
     "keep_heart_beating_callback": function (code, data) {
+        console.log(code)
     },
     //用户离开房间
     'out_room': function (roomId) {
@@ -555,6 +556,7 @@ var Communicator = {
         if (!window.WebSocket) {
             return;
         }
+        // console.log(this.ws)
         if (this.ws.readyState == WebSocket.OPEN) {
             this.ws.send(send_buffer);
         } else {
@@ -573,6 +575,7 @@ var Communicator = {
     "closeWebSocket": function () {
         console.log("socket销毁")
         this.ws.close();
+        this.closeHeartBeatiing();
     },
     //关闭心跳
     'closeHeartBeatiing': function () {

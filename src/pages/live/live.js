@@ -10,7 +10,7 @@ class Live extends Component {
     }
     async initData() {
         const result = await http.getHots();
-        console.log(result)
+        // console.log(result)
         const items = [];
         const maxNum = 10000;
         result.ri.forEach((item, key) => {
@@ -45,7 +45,7 @@ class Live extends Component {
         </div>
     }
     componentDidMount() {
-        console.log(this.props)
+        // console.log(this.props)
         if (document.querySelector("#example_video_1")) {
             document.querySelector("#example_video_1").remove();
         }

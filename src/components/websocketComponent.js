@@ -23,8 +23,12 @@ class WebsocketCom extends Component {
         this.socketMessage = this.socketMessage.bind(this);
         this.initSocket = this.initSocket.bind(this);
         this.renderBadge = this.renderBadge.bind(this);
+        this.renderGift = this.renderGift.bind(this);
         this.chatArray = [];
         this.timer = null;
+        this.giftItem = {};
+
+
     }
     state = {
         chatKey: 1,
@@ -59,16 +63,16 @@ class WebsocketCom extends Component {
 
     }
     async initGift() { //初始化礼物
-        let giftItem = {};
+
         let giftMap = await http.getGift();
         giftMap.gift.d.forEach((item) => {
-            giftItem[item.id] = {
+            this.giftItem[item.id] = {
                 pic: config.imgUrl + item["gp"]
             }
         })
-        this.setState({
-            gift: giftItem
-        })
+        // this.setState({
+        //     gift: giftItem
+        // })
     }
 
     initSocket() {//初始化socket
@@ -82,14 +86,17 @@ class WebsocketCom extends Component {
     socketMessage(data) {//socket 回掉
         let that = this;
         let type = socket_messge_type;
-        console.log(data)
+        // console.log(data)
         if (data)
             switch (data['mid']) {
                 case type.chat:
+                    // console.log(data)
                     that.speaking(data)
+
                     break;
                 case type.gift:
-                    //console.log(data)
+                    // console.log(data)
+                    that.renderGift(data)
                     break;
                 case type.goingroom:
                     break;
@@ -119,43 +126,69 @@ class WebsocketCom extends Component {
         let chatStr = util.replaceFace(this.state.face, data);
         this.chatArray.push({
             chat: chatStr,
-            msg: data.info
+            msg: data.info,
         });
+        //  console.log()
         if (this.chatArray.length > 50) {
             this.chatArray.splice(0, 1);
         }
         let chatList = this.chatArray.map((item, index) => {
+            // if (item.gift) {
+            //     console.log(item)
+            // }
+            let vls = item.msg ? item.msg.vl : item.gift.vl;
+
+            let chatNameStyle = vls === 1 ? 'vipUser' : vls === 2 ? 'svipUser' : "";
             let badges = "";
-            let vls = item.msg.vl;
-            let vips = vls === 1 ? <img src={require("../assets/icon_vip.png")} /> : vls === 2 ? <img src={require("../assets/svipicon.png")} /> : "";
-            let fans = item.msg.fl >= 1 ? <span className="fans">{item.msg.fl}</span> : "";
-            let chatNameStyle = vls === 1 ? 'chatUserName vipUser' : vls === 2 ? 'chatUserName svipUser' : "chatUserName";
-            if (item.msg.bdg) {
-                badges = this.renderBadge(item.msg.bdg)
+            let vips = "";
+            let fans = ""
+            if (!item.gift) {
+                vips = vls === 1 ? <img src={require("../assets/icon_vip.png")} /> : vls === 2 ? <img src={require("../assets/svipicon.png")} /> : "";
+                fans = item.msg.fl >= 1 ? <span className="fans">{item.msg.fl}</span> : "";
+                if (item.msg.bdg) {
+                    badges = this.renderBadge(item.msg.bdg)
+                }
             }
-            return <div className="chat-items" key={index}>
-                <div className="chat-item">
-                    <div className="user-chat">
-                        <div className={chatNameStyle}>{item.msg.nn || "***"}</div>
-                        <div className="chat-imgs">
-                            {badges}
-                            {fans}
-                            {vips}
-                        </div>
-                    </div>
-                    <div className="chat-speak" dangerouslySetInnerHTML={{ __html: item.chat }}></div>
+            return item.gift ? <div className="chatGift" key={index}>
+                <img className="sendGiftImg" src={require("../assets/send_gift.png")} alt="" />
+                <div className={["chatUserName", "user-send-gift", chatNameStyle].join(" ")}>{item.gift.nn}</div>
+                <img src={this.giftItem[item.gift.gid].pic} alt="" />
+                <div className="chat-gift-num">
+                    <span>x</span>
+                    <label>{item.gift.gnum}</label>
                 </div>
-                <div className="chat-kong"></div>
             </div>
+                : <div className="chat-items" key={index}>
+                    <div className="chat-item">
+                        <div className="user-chat">
+                            <div className={["chatUserName", chatNameStyle].join(" ")} >{item.msg.nn || "xxx"}</div>
+                            <div className="chat-imgs">
+                                {badges}
+                                {fans}
+                                {vips}
+                            </div>
+                        </div>
+                        <div className="chat-speak" dangerouslySetInnerHTML={{ __html: item.chat }}></div>
+                    </div>
+                    <div className="chat-kong"></div>
+                </div>
         })
 
         this.setState({
             chatHtml: chatList
-        })
+        });
+
+    }
+    renderGift(data) {
+        let gitfMessage = data.info;
+        // console.log(data)
+        this.chatArray.push({
+            gift: gitfMessage
+        });
 
     }
     renderBadge(badge) {
-        console.log(badge)
+        // console.log(badge)
         // console.log(this.badge)
         return badge.map((item) => {
             if (this.state.badge[item]) {
@@ -177,7 +210,7 @@ class WebsocketCom extends Component {
         this.initSocket();
         this.timer = setInterval(() => {
             document.querySelector("#socketChatScroll").scrollIntoView(false)
-        }, 2000)
+        })
 
     }
 

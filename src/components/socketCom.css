@@ -29,7 +29,7 @@
     -webkit-box-pack: start;
     -ms-flex-pack: start;
     justify-content: flex-start;
-    max-width: 440px;
+    max-width: 490px;
 }
 .chat-item{
     background-color: rgba(0,0,0,.2);
@@ -50,8 +50,8 @@
 .badgeImg{
     width: 32px;
     height: 32px;
-    margin-left: 8px;
-    margin-right: 8px;
+    /* margin-left: 8px;
+    margin-right: 8px; */
 }
 
 .svipUser{
@@ -68,6 +68,7 @@
     align-items: center;
 }
 .chatUserName{
+    color: #7f7b77;
     font-size: 28px;
     max-width: 220px;
     overflow: hidden;
@@ -106,3 +107,41 @@
     text-align: left;
     vertical-align: bottom;
 }
+.sendGiftImg{
+    margin-right: 10px;
+}
+.chatGift{
+    margin-bottom: 10px;
+    height: 60px;
+    color: #fff;
+    padding-left: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgba(11, 194, 198, 0.2) !important;
+    border-radius: 0 15px 15px 0 !important;
+    padding-right:10px; 
+    
+}
+.chatGift img:nth-child(3){
+    width: 50px;
+    
+}
+.chat-gift-num {
+    margin-left: 15px;
+    font-size: 30px;
+    line-height: 60px;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.chat-gift-num  span{
+    padding: 0 10px;
+}
+/* .user-send-gift{
+    max-width: 200px;
+    
+} */
