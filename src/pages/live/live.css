@@ -1,0 +1,51 @@
+.liveList{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top:6px; 
+}
+.live_item{
+    width: 374px;
+    height: 374px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 1px;
+}
+.live_item .livePost{
+    width: 374px;
+    height: 374px;
+    position: relative;
+}
+.live_item .message{
+    top: -2px;
+    left: 12px;
+    position: absolute;
+    width: 100%;
+    height: 52px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+}
+.live_item .online{
+    width: 106px;
+    height: 52px;
+    background: url("../../assets/LIVE_small2x.png") center center no-repeat;
+}
+.live_item .online img{
+    position: absolute;
+    top: 14px;
+    left: 1px;
+}
+.live_item .line_number{
+    margin-top: 14px;
+    height: 34px;
+    padding-left:45px;
+    min-width: 126px;
+    font-size: 26px;
+    line-height: 39px;
+    color: #fff;
+    text-align: left;
+    background: url("../../assets/gray.png")  left center no-repeat;
+    /* background-size: 100% 100%; */
+}

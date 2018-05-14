@@ -1,5 +1,88 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+@charset "utf-8";
+
+/* RESET
+----------------------------------------------- */
+/*@font-face {font-family:"HelveticaNeue"; src:url("HelveticaNeue.dfont");}*/
+html, body, div, span, applet, object, iframe, h1, h2, h3,
+h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address,
+big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption, tbody, tfoot,
+thead, tr, th, td ,i,span,img{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    direction: inherit;
+    font-weight: inherit;
+    font-style: normal;
+    font-size: 100%;
+    font-family: HelveticaNeue !important;
+    vertical-align: baseline;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"]{
+  -moz-appearance: textfield;
+}
+:focus {
+    outline: 0;
+}
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+caption, th, td {
+    text-align: left;
+    font-weight: normal;
+}
+img,
+a img {
+    border: none;
+    vertical-align: bottom;
+}
+a {
+    text-decoration: none;
+    color: #1a1a1a;
+}
+ol, ul {
+    list-style: none;
+}
+input, textarea, select, button {
+    font-size: 100%;
+    font-family: inherit;
+}
+select {
+    margin: inherit;
+}
+.clearfix:after {
+    content: "." ;
+    display: block ;
+    height: 0 ;
+    clear: both ;
+    visibility: hidden ;
+}
+
+::-webkit-scrollbar{width:0px}
+.blur {
+    -webkit-filter: blur(20px);
+    filter: blur(20px);
+    width: 100%;
+}
+
+body,html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+    font-family:"helvetica";
+    /* color: #fff; */
+    line-height: 100%;
+    word-wrap: break-word;
+    word-break: keep-all ;
+    -webkit-text-size-adjust: none;
+}
+
+

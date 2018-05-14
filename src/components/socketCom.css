@@ -1,0 +1,108 @@
+.socketChat{
+    position: absolute;
+    left: 0;
+    bottom: 208px;
+    /* max-width: 404px; */
+    height: 300px;
+    overflow: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    z-index: 9;
+    /* background: rgba(0, 0, 0, .1); */
+}
+.chat-speak img {
+    width: 32px;
+    height: 32px;
+
+}
+.socketChatScroll{
+    position: relative;
+}
+.chat-items{
+
+    margin-bottom: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    max-width: 440px;
+}
+.chat-item{
+    background-color: rgba(0,0,0,.2);
+    border-radius: 0 20px 20px 0;
+    padding: 10px 20px 10px 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+.chat-kong{
+    flex: 1;
+}
+.badgeImg{
+    width: 32px;
+    height: 32px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.svipUser{
+    color: #f6a623 !important;
+}
+.vipUser{
+    color: #c5381d !important;
+}
+.user-chat{
+    font-size: 28px;
+    color: #7f7b77;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.chatUserName{
+    font-size: 28px;
+    max-width: 220px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 28px;
+}
+.fans{
+    font-size: 24px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    margin: 0 10px;
+    padding: 0 30px;
+    padding-right: 15px;
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    background: #0bc2c6 url("../assets/fansicon.png") no-repeat 10px center;
+    border-radius: 15px;
+}
+.chat-imgs{
+    display: flex;
+    flex: 1;
+}
+.chat-speak{
+    color: #fff;
+    padding: 5px 10px 1px 5px;
+    max-width: 380px;
+    overflow: hidden;
+    line-height: 24px;
+    font-size: 24px;
+    text-align: left;
+    vertical-align: bottom;
+}

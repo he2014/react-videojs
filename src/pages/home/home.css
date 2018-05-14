@@ -1,0 +1,9 @@
+.container{
+    position: absolute;
+    width: 100%;
+    top: 170px;
+    bottom: 100px;
+    overflow: scroll;
+    overflow-x:hidden;
+    -webkit-overflow-scrolling: touch;
+}
