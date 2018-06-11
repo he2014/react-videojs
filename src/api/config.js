@@ -8,10 +8,10 @@ const websocketConfig = {
     CHATTYPE: 2
 }
 
-const imgUrl = "//www.7nujoom.com/resource/";
+const imgUrl = "//www.haahi.com/resource/";
 if (process.env.NODE_EVN === "development") {
-    baseUrl = "http://www.7nujoom.com/";
+    baseUrl = "http://www.haahi.com/";
 } else {
-    baseUrl = "http://www.7nujoom.com/";
+    baseUrl = "http://www.haahi.com/";
 }
 export default { imgUrl, baseUrl, websocketConfig }

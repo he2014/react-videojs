@@ -1,0 +1,35 @@
+.chatItems {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+.chatItems img{
+    width: 120px;
+    height: auto;
+    margin: 0 20px;
+}
+.chatListMain{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #009a61;
+}
+.chatName{
+    height: 40px;
+    line-height: 40px;
+    font-size: 30px;
+    max-width: 368px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+   
+}
+.chatnum{
+    height: 60px;
+    font-size: 30px;
+    padding-left: 70px;
+    line-height: 60px;
+    background: url("../../assets/icon_usercount.png") left center no-repeat;
+    /* color: #009a61; */
+    margin-left: 40px;
+}

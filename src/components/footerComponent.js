@@ -4,7 +4,7 @@ import Footerdetail from "../pages/footer/detailFooter";
 
 class FooterCom extends Component {
     render() {
-        return this.props.footers === "index" ? <FooterHead /> : <Footerdetail />
+        return this.props.footers === "detail" ? <Footerdetail /> : <FooterHead />
     }
 }
 

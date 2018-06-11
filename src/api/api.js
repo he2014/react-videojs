@@ -46,7 +46,25 @@ class API extends Server {
             throw error;
         }
     }
-
+    async getvideoList() {// video列表
+        try {
+            let result = await this.axiosGet("get", "video/h5/index");
+            if (result && result instanceof Object && result.code === 0) return result.dataInfo;
+            else this.resultCode(result.code);
+        } catch (error) {
+            throw error;
+        }
+    }
+    async getchatList() {// chat列表
+        try {
+            let result = await this.axiosGet("get", "service/chat/room/v3/list/room?requestType=1");
+            if (result && result instanceof Object && result.code === 0) return result.dataInfo;
+            else this.resultCode(result.code);
+        } catch (error) {
+            throw error;
+        }
+    }
+    //http://www.haahi.com/
     resultCode(code) {
         console.log(code);
     }

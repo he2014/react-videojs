@@ -50,7 +50,7 @@ class VideoCom extends Component {
                     poster={config.imgUrl + liveData.rpp}>
 
                     {/* <source src={uri} type='application/x-mpegURL' /> */}
-                    <source src="http://www.7nujoom.com/resource/group1/M00/0C/8D/CgAA91r3FjmAMKFTADpUlpY98fI924.mov" type='video/mp4' />
+                    <source src="http://www.7nujoom.com/resource/group1/M00/0C/CA/CgAA91r7rwqAAc0vACyp0rEPeAg000.mov" type='video/mp4' />
                 </video>
             </div>
             let htmls_hotmsg = <div className="hotmsg_out">

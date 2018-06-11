@@ -4,7 +4,7 @@ import DetaiHead from "../pages/header/detailHeader";
 
 class HeadCom extends Component {
     render() {
-        return this.props.headers === "index" ? <IndexHead /> : <DetaiHead />
+        return this.props.headers === "detail" ? <DetaiHead /> : <IndexHead />
     }
 }
 

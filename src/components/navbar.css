@@ -14,6 +14,7 @@
 }
 .nav li{
     width: 250px;
+    overflow: hidden;
     /* -moz-box-shadow:1px 0px 2px #ccc;
      -webkit-box-shadow:1px 0px 2px #ccc;
       box-shadow:1px 0px 2px #ccc; */
@@ -24,5 +25,17 @@
     /* text-shadow: -1px -1px 0 #fff,1px 1px 0 #333,1px 1px 0 #444; */
 }
 .nav li a{
-    display: block;
+    display: flex;
+    height: 90px;
+   justify-content: center;
+   align-items: center;
+
+    /* line-height: 90px; */
+}
+.nav li a img{
+    width: 90px;
+    height: auto;
+}
+.active{
+    background: rgba(3, 3, 3, .3);
 }
