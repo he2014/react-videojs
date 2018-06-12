@@ -1,13 +1,10 @@
-#root,.App {
-  text-align: center;
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
 #root {
   width: 750px;
   margin: 0 auto;
+  height: 100%;
+  position: relative;
 }
+
 .IIV::-webkit-media-controls-play-button,
 .IIV::-webkit-media-controls-start-playback-button {
     opacity: 0;

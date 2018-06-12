@@ -41,7 +41,7 @@ class WebsocketCom extends Component {
     }
     async initBadge() {//初始化徽章
         let badgeMap = await http.getBadge();
-        console.log(badgeMap.badge)
+        // console.log(badgeMap.badge)
         this.setState({
             badge: badgeMap.badge.d
         })

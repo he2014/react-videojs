@@ -1,0 +1,10 @@
+.videoList{
+    display: flex;
+    justify-content: space-around;
+}
+.videoItem{
+    width: 200px;
+    height: 360px;
+    overflow: hidden;
+
+}

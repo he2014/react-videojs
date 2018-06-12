@@ -79,3 +79,6 @@ justify-content: flex-end;
 ._hot_online{
     flex:1;
 }
+.button {
+    text-align: center;
+}

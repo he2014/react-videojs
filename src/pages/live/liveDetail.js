@@ -2,7 +2,6 @@ import React, { Component } from "react"
 import "./liveDetail.css"
 import Headers from "../../components/headerComponent"
 import Footers from "../../components/footerComponent"
-// import VideoCom from "../../components/videoComponent"
 import asyncComponent from "../../util/asyncComponent"
 import config from "../../api/config"
 
