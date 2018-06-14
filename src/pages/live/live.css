@@ -1,10 +1,12 @@
-.liveList{
+
+.liveList,.liveList span{
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     margin-top:6px; 
 }
+
 .live_item{
     width: 374px;
     height: 374px;
