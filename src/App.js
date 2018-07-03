@@ -7,8 +7,8 @@ import home from "./pages/home/home"
 import chat_room from "./pages/chat/chat"
 import video_list from "./pages/video/video"
 const live_detail = asyncComponent(() => import("./pages/live/liveDetail"));
-const chat_detail = asyncComponent(() => import("./pages/chat/chatDetail"))
-const video_detail = asyncComponent(() => import("./pages/video/videoDetail"))
+const chat_detail = asyncComponent(() => import("./pages/chat/chatDetail"));
+const video_detail = asyncComponent(() => import("./pages/video/videoDetail"));
 
 class App extends Component {
 
@@ -25,6 +25,7 @@ class App extends Component {
                         <Route exact path="/video/:videoId" component={video_detail} />
                         <Route exact path="/chat" component={chat_room} />
                         <Route path="/chat/:roomId" component={chat_detail} {...this.props} />
+
                         <Redirect to="/" />
                     </Switch>
                 </BrowserRouter >

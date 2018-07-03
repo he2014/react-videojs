@@ -64,6 +64,15 @@ class API extends Server {
             throw error;
         }
     }
+    async getChatItem(chatId) {//http://www.7nujoom.com/service/chat/room/v3/info/8678978
+        try {
+            let result = await this.axiosGet("get", "service/chat/room/v3/info/" + chatId + "?requestType=1");
+            if (result && result instanceof Object && result.code === 0) return result.dataInfo;
+            else this.resultCode(result.code);
+        } catch (error) {
+            throw error;
+        }
+    }
     //http://www.haahi.com/
     resultCode(code) {
         console.log(code);
