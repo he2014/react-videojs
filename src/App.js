@@ -11,7 +11,6 @@ const chat_detail = asyncComponent(() => import("./pages/chat/chatDetail"));
 const video_detail = asyncComponent(() => import("./pages/video/videoDetail"));
 
 class App extends Component {
-
     render() {
         const supportsHistory = 'pushState' in window.history
 
@@ -25,7 +24,6 @@ class App extends Component {
                         <Route exact path="/video/:videoId" component={video_detail} />
                         <Route exact path="/chat" component={chat_room} />
                         <Route path="/chat/:roomId" component={chat_detail} {...this.props} />
-
                         <Redirect to="/" />
                     </Switch>
                 </BrowserRouter >

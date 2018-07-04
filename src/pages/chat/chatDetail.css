@@ -2,6 +2,7 @@
     width: 100%;
     height: 1200px;
     background: rebeccapurple;
+    position: relative;
 }
 .detail-title{
     height: 100px;
@@ -20,14 +21,25 @@
 }
 .chat-detailPic{
     padding: 50px 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 .chat-detailBtn {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding: 50px 0 ;
     font-size: 30px;
     color: aqua;

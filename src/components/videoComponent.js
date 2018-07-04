@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import video from 'video';
+import video from 'video.js';
 // import "videojs-flash"
 import enableInlineVideo from 'iphone-inline-video';
 import "videojs-contrib-hls";

@@ -41,23 +41,15 @@ class Live extends Component {
         console.log(this.props)
     }
     render() {
-        return <div className="liveList">
-            <ReactCSSTransitionGroup
-                transitionName={{
-                    enter: 'example-enter',
-                    leave: 'example-leave',
-                    appear: 'example-appear',
-                    enterActive: 'example-enter-active',
-                    leaveActive: 'example-leave-active',
-                    appearActive: 'example-appear-active'
-                }}
-                transitionName="fade"
-                transitionEnterTimeout={300}
-                transitionLeaveTimeout={300}
-            >
+        return <ReactCSSTransitionGroup
+            transitionName="example"
+            transitionEnterTimeout={500}
+            transitionLeaveTimeout={300}>
+            <div className="liveList">
                 {this.state.liveList}
-            </ReactCSSTransitionGroup>
-        </div>
+
+            </div>
+        </ReactCSSTransitionGroup>
     }
     componentDidMount() {
         // console.log(this.props)

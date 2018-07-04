@@ -1,0 +1,47 @@
+.createChat-container{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0,0,0,.7);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+.createchat-main {
+    height: 90%;
+    width: 90%;
+    background: #fff;
+    position: relative;
+}
+.createchat-form{
+    padding: 100px;
+}
+.createchat-form-item{
+    padding: 20px;
+    font-size: 30px;
+    height: 100px;
+}
+.createchat-form-item span{
+    margin: 20px;
+    display: block;
+}
+.createchat-form-item input{
+    outline: none;
+    border: 1px solid #333;
+}
+.createChat-cancle{
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: inline;
+    padding: 20px;
+    background-color: aqua;
+}

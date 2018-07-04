@@ -73,6 +73,15 @@ class API extends Server {
             throw error;
         }
     }
+    async uploadImg() {
+        try {
+            let result = await this.axiosPost("post", "http://elm.cangdu.org/v1/addimg/shop");
+            if (result && result instanceof Object && result.code === 0) return result.dataInfo;
+            else this.resultCode(result.code);
+        } catch (error) {
+            throw error;
+        }
+    }
     //http://www.haahi.com/
     resultCode(code) {
         console.log(code);
