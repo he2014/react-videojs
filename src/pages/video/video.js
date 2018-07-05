@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom"
 import http from "../../api/api"
-import NavBar from "../../components/navbar"
-import Headers from "../../components/headerComponent"
+// import NavBar from "../../components/navbar"
+// import Headers from "../../components/headerComponent"
 import Footers from "../../components/footerComponent"
 import config from "../../api/config"
 import './video.css'
@@ -12,9 +12,7 @@ class Videos extends Component {
     }
     render() {
         return <div>
-            <Headers />
             <div className="container">
-                <NavBar />
                 <div className="videoList">
                     {this.state.videoList}
                 </div>

@@ -10,6 +10,7 @@
 
 .example-enter-active {
   opacity: 1;
+  -webkit-transition: opacity 500ms ease-in;
   transition: opacity 500ms ease-in;
 }
 .example-leave {
@@ -17,6 +18,7 @@
 }
 .example-leave-active {
   opacity: 0.01;
+  -webkit-transition: opacity 300ms ease-in;
   transition: opacity 300ms ease-in;
 }
 .example-appear {
@@ -24,6 +26,7 @@
 }
 .example-appear-active {
   opacity: 1;
+  -webkit-transition: opacity .5s ease-in;
   transition: opacity .5s ease-in;
 }
 .IIV::-webkit-media-controls-play-button,
@@ -33,7 +36,8 @@
     width: 5px;
 }
 video{
-  object-fit: fill;
+  -o-object-fit: fill;
+     object-fit: fill;
 }
 .video-js{
   position: absolute;
@@ -44,9 +48,15 @@ video{
   width: 100%;
   position: absolute;
   z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   top: 50%;
   margin-top: -70px;
   
@@ -72,7 +82,8 @@ html,body{
   height: 100%;
 }
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
+  -webkit-animation: App-logo-spin infinite 20s linear;
+          animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
 
@@ -91,7 +102,101 @@ html,body{
   font-size: large;
 }
 
+@-webkit-keyframes App-logo-spin {
+  from { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+}
+
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+/*  */
+.help-block {
+  -webkit-transform-origin: center left;
+          transform-origin: center left;
+}
+
+.message-enter {
+  opacity: 0.01;
+  -webkit-transform: scale(1) translateY(50%);
+          transform: scale(1) translateY(50%);
+}
+.message-enter-active {
+  opacity: 1;
+  -webkit-transform: scale(1) translateY(0%);
+          transform: scale(1) translateY(0%);
+  -webkit-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+}
+.message-exit {
+  opacity: 1;
+  -webkit-transform: scale(0) translateY(0%);
+          transform: scale(0) translateY(0%);
+}
+.message-exit-active {
+  opacity: 0.01;
+  -webkit-transform: scale(0) ;
+          transform: scale(0) ;
+  -webkit-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+}
+
+.star {
+  display: inline-block;
+  margin-left: 0.5rem;
+  -webkit-transform: scale(1.25);
+          transform: scale(1.25);
+}
+.star-enter {
+  opacity: 0.01;
+  -webkit-transform: translateY(-100%) scale(0.75);
+          transform: translateY(-100%) scale(0.75);
+}
+.star-enter-active {
+  opacity: 1;
+  -webkit-transform: translateY(0%) scale(1.25);
+          transform: translateY(0%) scale(1.25);
+  -webkit-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+}
+.star-exit {
+  opacity: 1;
+  -webkit-transform: scale(1.25);
+          transform: scale(1.25);
+}
+.star-exit-active {
+  opacity: 0;
+  -webkit-transform: scale(4);
+          transform: scale(4);
+  -webkit-transition: all 300ms ease-in;
+  transition: all 300ms ease-in;
+}
+.nav-enter{
+  -webkit-transform: translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0);
+}
+
+.nav-enter.nav-enter-active{
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform 300ms;
+  transition: -webkit-transform 300ms;
+  transition: transform 300ms;
+  transition: transform 300ms, -webkit-transform 300ms;
+}
+
+.nav-exit{
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+.nav-exit.nav-exit-active{
+  -webkit-transform: translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0);
+  -webkit-transition: -webkit-transform 300ms;
+  transition: -webkit-transform 300ms;
+  transition: transform 300ms;
+  transition: transform 300ms, -webkit-transform 300ms;
 }

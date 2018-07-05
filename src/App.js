@@ -6,30 +6,51 @@ import asyncComponent from "./util/asyncComponent"
 import home from "./pages/home/home"
 import chat_room from "./pages/chat/chat"
 import video_list from "./pages/video/video"
+import chat_detail from "./pages/chat/chatDetail"
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { connect } from "react-redux";
+import { changeHeader } from "./store/header/action"
+import IndexHeader from "./pages/header/indexHeader"
 const live_detail = asyncComponent(() => import("./pages/live/liveDetail"));
-const chat_detail = asyncComponent(() => import("./pages/chat/chatDetail"));
 const video_detail = asyncComponent(() => import("./pages/video/videoDetail"));
 
 class App extends Component {
+    componentWillMount() {
+        this.props.changeHeader();
+    }
     render() {
         const supportsHistory = 'pushState' in window.history
-
         return (
-            <div >
+            <div>
                 <BrowserRouter forceRefresh={!supportsHistory}>
-                    <Switch>
-                        <Route path="/" exact component={home} {...this.props} />
-                        <Route path="/live/:roomId" component={live_detail} {...this.props} />
-                        <Route exact path="/video" component={video_list} />
-                        <Route exact path="/video/:videoId" component={video_detail} />
-                        <Route exact path="/chat" component={chat_room} />
-                        <Route path="/chat/:roomId" component={chat_detail} {...this.props} />
-                        <Redirect to="/" />
-                    </Switch>
+                    <div>
+                        {this.props.headData.headtypes && <IndexHeader />}
+                        <Route render={({ location }) => (
+                            < TransitionGroup >
+                                <CSSTransition key={location.key} classNames="message" timeout={500}>
+                                    <Switch location={location}>
+                                        <Route path="/" exact component={home} {...this.props} />
+                                        <Route path="/live/:roomId" component={live_detail} {...this.props} />
+                                        <Route exact path="/video" component={video_list} />
+                                        <Route exact path="/video/:videoId" component={video_detail} />
+                                        <Route exact path="/chat" component={chat_room} />
+                                        <Route path="/chat/:roomId" component={chat_detail} {...this.props} />
+                                        <Redirect to="/" />
+                                    </Switch>
+                                </CSSTransition>
+                            </TransitionGroup>
+                        )}
+
+                        />
+                    </div>
                 </BrowserRouter >
-            </div>
+            </div >
         );
     }
 }
 
-export default App;
+export default connect(state => ({
+    headData: state.headersate
+
+
+}), { changeHeader })(App);

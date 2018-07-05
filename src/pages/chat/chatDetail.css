@@ -48,4 +48,23 @@
 .editChat{
     padding: 20px;
     background-color: brown;
-}
+} .example-enter {
+    opacity: 0.01;
+  }
+ 
+  .example-enter.example-enter-active {
+    opacity: 1;
+    -webkit-transition: opacity 500ms ease-in;
+    transition: opacity 500ms ease-in;
+  }
+ 
+
+ .example-exit {
+    opacity: 1;
+  }
+
+ .example-exit.example-exit-active {
+    opacity: 0.01;
+    -webkit-transition: opacity 300ms ease-in;
+    transition: opacity 300ms ease-in;
+  }

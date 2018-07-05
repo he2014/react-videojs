@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from 'prop-types'
 import { saveChat, createshow } from "../../store/chartDetail/action"
+import { changeHeader } from "../../store/header/action"
 import http from "../../api/api";
 import config from "../../api/config"
-import asyncComponent from "../../util/asyncComponent"
+
 import './chatDetail.css';
-const CreateChat_com = asyncComponent(() => import("./createChat"));
+import CreateChat_com from "./createChat";
 class ChatDetail extends Component {
     state = {
 
@@ -25,15 +26,18 @@ class ChatDetail extends Component {
             <div className="chat-detailBtn">
                 <div className="createChat" onClick={this.createChatcallback.bind(this)}>编辑聊天室</div>
             </div>
+
             {this.props.chatData.iscreatechat && <CreateChat_com />}
 
         </main>
     }
     async componentWillMount() {
+        this.props.changeHeader({ headtypes: false })
         let data = await http.getChatItem(this.props.match.params.roomId);
         this.props.saveChat(data);
     }
     createChatcallback() {
+
         if (!this.props.chatData.iseditchat)
             this.props.createshow({ iscreatechat: true })
     }
@@ -44,6 +48,7 @@ export default connect(state => ({
 }), {
         createshow,
         saveChat,
+        changeHeader
     })(ChatDetail)
 
     ;

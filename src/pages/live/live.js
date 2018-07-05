@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import http from "../../api/api"
 import config from "../../api/config"
 import "./live.css"
@@ -41,15 +40,13 @@ class Live extends Component {
         console.log(this.props)
     }
     render() {
-        return <ReactCSSTransitionGroup
-            transitionName="example"
-            transitionEnterTimeout={500}
-            transitionLeaveTimeout={300}>
-            <div className="liveList">
-                {this.state.liveList}
+        return <div className="liveList">
+            {this.state.liveList}
+        </div>
 
-            </div>
-        </ReactCSSTransitionGroup>
+
+
+
     }
     componentDidMount() {
         // console.log(this.props)
