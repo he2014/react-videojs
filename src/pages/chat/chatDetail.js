@@ -5,6 +5,7 @@ import { saveChat, createshow } from "../../store/chartDetail/action"
 import { changeHeader } from "../../store/header/action"
 import http from "../../api/api";
 import config from "../../api/config"
+import { CSSTransition } from "react-transition-group"
 
 import './chatDetail.css';
 import CreateChat_com from "./createChat";
@@ -26,9 +27,13 @@ class ChatDetail extends Component {
             <div className="chat-detailBtn">
                 <div className="createChat" onClick={this.createChatcallback.bind(this)}>编辑聊天室</div>
             </div>
-
-            {this.props.chatData.iscreatechat && <CreateChat_com />}
-
+            {this.props.chatData.iscreatechat && <CSSTransition
+                in={true}
+                timeout={300}
+                classNames="fade"
+            >
+                <CreateChat_com />
+            </CSSTransition>}
         </main>
     }
     async componentWillMount() {
