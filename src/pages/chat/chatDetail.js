@@ -6,13 +6,11 @@ import { changeHeader } from "../../store/header/action"
 import http from "../../api/api";
 import config from "../../api/config"
 import { CSSTransition } from "react-transition-group"
+import ReactDOM from "react-dom"
 
 import './chatDetail.css';
 import CreateChat_com from "./createChat";
 class ChatDetail extends Component {
-    state = {
-
-    }
     static propTypes = {
         chatData: PropTypes.object.isRequired,
         saveChat: PropTypes.func.isRequired,
@@ -27,12 +25,18 @@ class ChatDetail extends Component {
             <div className="chat-detailBtn">
                 <div className="createChat" onClick={this.createChatcallback.bind(this)}>编辑聊天室</div>
             </div>
-            {this.props.chatData.iscreatechat && <CSSTransition
-                in={true}
+            <CSSTransition
+                in={this.props.chatData.iscreatechat}
                 timeout={300}
-                classNames="fade"
+                classNames="star"
+                appear={true}
+                unmountOnExit
+                onEnter={() => {
+                    this.CreateChatDom = ReactDOM.findDOMNode(this.refs.CreateChatDom);
+                    console.log(this.CreateChatDom)
+                }}
             >
-                <CreateChat_com />
+                <CreateChat_com ref="CreateChatDom" />
             </CSSTransition>}
         </main>
     }
@@ -41,10 +45,13 @@ class ChatDetail extends Component {
         let data = await http.getChatItem(this.props.match.params.roomId);
         this.props.saveChat(data);
     }
+
     createChatcallback() {
 
-        if (!this.props.chatData.iseditchat)
+        if (!this.props.chatData.iseditchat) {
             this.props.createshow({ iscreatechat: true })
+        }
+
     }
 
 };
