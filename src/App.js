@@ -6,11 +6,12 @@ import asyncComponent from "./util/asyncComponent"
 import home from "./pages/home/home"
 import chat_room from "./pages/chat/chat"
 import video_list from "./pages/video/video"
-import chat_detail from "./pages/chat/chatDetail"
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { connect } from "react-redux";
 import { changeHeader } from "./store/header/action"
 import IndexHeader from "./pages/header/indexHeader"
+import Login from "./pages/login/login"
+import chat_detail from "./pages/chat/chatDetail"
 const live_detail = asyncComponent(() => import("./pages/live/liveDetail"));
 const video_detail = asyncComponent(() => import("./pages/video/videoDetail"));
 
@@ -26,17 +27,20 @@ class App extends Component {
                     <div>
                         {this.props.headData.headtypes && <IndexHeader />}
                         <Route render={({ location }) => (
-                            < TransitionGroup >
+                            <TransitionGroup >
                                 <CSSTransition key={location.key} classNames="message" timeout={500}>
-                                    <Switch location={location}>
-                                        <Route path="/" exact component={home} {...this.props} />
-                                        <Route path="/live/:roomId" component={live_detail} {...this.props} />
-                                        <Route exact path="/video" component={video_list} />
-                                        <Route exact path="/video/:videoId" component={video_detail} />
-                                        <Route exact path="/chat" component={chat_room} />
-                                        <Route path="/chat/:roomId" component={chat_detail} {...this.props} />
-                                        <Redirect to="/" />
-                                    </Switch>
+                                    <div>
+                                        <Switch location={location}>
+                                            <Route exact path="/" component={home} {...this.props} />
+                                            <Route path="/live/:roomId" component={live_detail} {...this.props} />
+                                            <Route exact path="/video" component={video_list} />
+                                            <Route path="/video/:videoId" component={video_detail} />
+                                            <Route exact path="/chat" component={chat_room} />
+                                            <Route path="/chat/:roomId" component={chat_detail} {...this.props} />
+                                            <Route path="/login/b" component={Login} />
+                                        </Switch>
+
+                                    </div>
                                 </CSSTransition>
                             </TransitionGroup>
                         )}

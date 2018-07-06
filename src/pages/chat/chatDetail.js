@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link, Route } from "react-router-dom"
 import PropTypes from 'prop-types'
 import { saveChat, createshow } from "../../store/chartDetail/action"
 import { changeHeader } from "../../store/header/action"
@@ -7,6 +8,8 @@ import http from "../../api/api";
 import config from "../../api/config"
 import { CSSTransition } from "react-transition-group"
 import ReactDOM from "react-dom"
+import Details from "./details"
+import InterseptRoter from "./interseptRoter"
 
 import './chatDetail.css';
 import CreateChat_com from "./createChat";
@@ -15,6 +18,9 @@ class ChatDetail extends Component {
         chatData: PropTypes.object.isRequired,
         saveChat: PropTypes.func.isRequired,
 
+    }
+    state = {
+        blcoking: false
     }
     render() {
         return <main className="chatdetail-container">
@@ -38,6 +44,16 @@ class ChatDetail extends Component {
             >
                 <CreateChat_com ref="CreateChatDom" />
             </CSSTransition>}
+                    <div style={{ height: "100px" }} >
+                <Link to={`/chat/${this.props.match.params.roomId}/detail`} style={{ padding: "30px", color: "#fff", background: "red" }}>查看详情</Link>
+
+
+            </div>
+            <div>
+                {/* 定义路由拦截 */}
+                <InterseptRoter blcoking={this.state.blcoking} exact path={`/chat/${this.props.match.params.roomId}/detail`} component={Details} />
+
+            </div>
         </main>
     }
     async componentWillMount() {
@@ -47,13 +63,11 @@ class ChatDetail extends Component {
     }
 
     createChatcallback() {
-
         if (!this.props.chatData.iseditchat) {
             this.props.createshow({ iscreatechat: true })
         }
 
     }
-
 };
 export default connect(state => ({
     chatData: state.chatDate
