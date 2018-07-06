@@ -37,7 +37,7 @@ class App extends Component {
                                             <Route path="/video/:videoId" component={video_detail} />
                                             <Route exact path="/chat" component={chat_room} />
                                             <Route path="/chat/:roomId" component={chat_detail} {...this.props} />
-                                            <Route path="/login/b" component={Login} />
+                                            <Route path="/login" component={Login} />
                                         </Switch>
 
                                     </div>

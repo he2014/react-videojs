@@ -5,7 +5,7 @@ export default ({ component: Component, ...rest }) => {
     return <Route {...rest} render={() => {
         const { blcoking } = { ...rest }
         return blcoking ? <Component /> : <Redirect to={{
-            pathname: "/login/b",
+            pathname: "/login",
             otherState: { from: "/chat/71803174" }//额外参数
         }} />
     }} />
