@@ -28,7 +28,7 @@ class ChatDetail extends Component {
             <CSSTransition
                 in={this.props.chatData.iscreatechat}
                 timeout={300}
-                classNames="star"
+                classNames="nav"
                 appear={true}
                 unmountOnExit
                 onEnter={() => {
