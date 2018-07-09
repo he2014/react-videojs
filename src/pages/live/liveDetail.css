@@ -7,4 +7,5 @@
     overflow: scroll;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
+    background-color: blueviolet;
 }

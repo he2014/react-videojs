@@ -2,11 +2,12 @@ import React from "react"
 import { Route, Redirect } from "react-router"
 
 export default ({ component: Component, ...rest }) => {
-    return <Route {...rest} render={() => {
+    return <Route {...rest} render={(props) => {
         const { blcoking } = { ...rest }
+        console.log(props)
         return blcoking ? <Component /> : <Redirect to={{
             pathname: "/login",
-            otherState: { from: "/chat/71803174" }//额外参数
+            state: { from: `/chat/${props.match.params.roomId}` }//额外参数
         }} />
     }} />
 }

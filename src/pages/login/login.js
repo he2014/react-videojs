@@ -1,8 +1,8 @@
 import React from "react"
 
 export default (props) => {
-    return <div onClick={() => {
+    return <div style={{ width: "300px", padding: "20px 0", margin: "0 auto" }} onClick={() => {
         console.log(props)
-        props.history.push(props.location.otherState.from)
+        props.history.push(props.location.state.from)
     }}> 登陆</div>
 }

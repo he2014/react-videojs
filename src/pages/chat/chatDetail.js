@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link, Route } from "react-router-dom"
+import { Link } from "react-router-dom"
 import PropTypes from 'prop-types'
 import { saveChat, createshow } from "../../store/chartDetail/action"
 import { changeHeader } from "../../store/header/action"
@@ -23,6 +23,7 @@ class ChatDetail extends Component {
         blcoking: false
     }
     render() {
+        console.log(this.props)
         return <main className="chatdetail-container">
             <div className="detail-title">聊天室信息</div>
             <div className="chat-detailName">聊天室名字：{this.props.chatData.rmn}</div>
@@ -51,7 +52,8 @@ class ChatDetail extends Component {
             </div>
             <div>
                 {/* 定义路由拦截 */}
-                <InterseptRoter blcoking={this.state.blcoking} exact path={`/chat/${this.props.match.params.roomId}/detail`} component={Details} />
+
+                <InterseptRoter blcoking={this.state.blcoking} exact path={`/chat/:roomId/detail`} component={Details} />
 
             </div>
         </main>

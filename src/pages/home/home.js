@@ -17,8 +17,8 @@ class Home extends Component {
     }
     render() {
         console.log(this.props)
-        const { show } = this.state;
-        const { location } = this.props.match;
+        // const { show } = this.state;
+        // const { location } = this.props.match;
         return <div>
             {/* <Headers headers="index" /> */}
             <div className="container">
