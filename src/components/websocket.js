@@ -2,6 +2,7 @@ import config from '../api/config'
 var socketUrl = {
     url01: config.websocketConfig.socketUrl
 }
+console.log(parseInt(window.scrollHeight))
 var Communicator = {
     'protocol': {
         'socketRequestType': {//socket请求类型
@@ -471,11 +472,11 @@ var Communicator = {
         var json = {
             "mid": _this.protocol.socketRequestType.JOIN_ROOM,
             "info":
-                {
-                    "rid": roomId,
-                    "rte": _this.rte_ROOMtype
+            {
+                "rid": roomId,
+                "rte": _this.rte_ROOMtype
 
-                },
+            },
 
         };
         this.send_message(
@@ -493,10 +494,10 @@ var Communicator = {
         var json = {
             "mid": _this.protocol.socketRequestType.HEART_BEAT,
             "info":
-                {
-                    "rid": roomId,
-                    "rte": _this.rte_ROOMtype
-                },
+            {
+                "rid": roomId,
+                "rte": _this.rte_ROOMtype
+            },
         };
         this.send_message(
             json,
