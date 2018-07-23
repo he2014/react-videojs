@@ -40,13 +40,14 @@ class App extends Component {
                                     <AnimateRouter path="/chat/:roomId" component={chat_detail} {...this.props} />
                                     <AnimateRouter path="/login" component={Login} />
 
+
                                     {/* <Route exact path="/" component={home} {...this.props} />
-                                    <Route path="/live/:roomId" component={live_detail} {...this.props} />
-                                    <Route exact path="/video" component={video_list} />
-                                    <Route path="/video/:videoId" component={video_detail} />
-                                    <Route exact path="/chat" component={chat_room} />
-                                    <Route path="/chat/:roomId" component={chat_detail} {...this.props} />
-                                    <Route path="/login" component={Login} /> */}
+                                            <Route path="/live/:roomId" component={live_detail} {...this.props} />
+                                            <Route exact path="/video" component={video_list} />
+                                            <Route path="/video/:videoId" component={video_detail} />
+                                            <Route exact path="/chat" component={chat_room} />
+                                            <Route path="/chat/:roomId" component={chat_detail} {...this.props} />
+                                            <Route path="/login" component={Login} /> */}
                                 </Switch>
 
                             </div>

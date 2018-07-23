@@ -20,7 +20,7 @@ class ChatDetail extends Component {
 
     }
     state = {
-        blcoking: false
+        blcoking: true
     }
     render() {
         console.log(this.props)
